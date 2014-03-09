@@ -14,7 +14,7 @@ class LazyStream < Array
     @input = File.open(filename, 'r')
   end
 
-  # dirty hack - we don't use 
+  # dirty hack - we don't use .at()
   def [](i)
     until self.at(i) ; self << @input.getc ; end
     self.at(i)
